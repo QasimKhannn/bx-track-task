@@ -18,7 +18,7 @@ const Books = () => {
       <div className="row">
         <div className="col-12">
           <h1 style={{ textTransform: "uppercase", textAlign: "center" }}>
-            welcome to the library
+            take a look
           </h1>
         </div>
         <div className="col-12 d-flex justify-content-center my-3">
