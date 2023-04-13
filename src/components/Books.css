@@ -1,0 +1,36 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.HoverRow {
+  width: 17rem;
+  height: 20rem;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-shadow: 0 0rem 10px 0rem black;
+}
+.HoverRow:hover {
+  color: white;
+  transition: 1s;
+}
+
+h4 {
+  color: white;
+  text-transform: uppercase;
+  margin-top: -4rem;
+  pointer-events: none;
+}
+.HoverRow:hover h4 {
+  transform: translateY(-1.5rem);
+  transition: 0.5s;
+}
+#sci {
+  pointer-events: none;
+  opacity: 0;
+}
+.HoverRow:hover #sci {
+  opacity: 1;
+  color: white;
+  transition: 0.5s;
+}
