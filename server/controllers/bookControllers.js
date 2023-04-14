@@ -15,6 +15,29 @@ exports.getAllBooks = async (req, res) => {
     });
   }
 };
+exports.getOneBook = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const book = await Book.findById(id);
+    if (!book) {
+      return res.status(404).send({
+        status: "error",
+        message: "Book not found",
+      });
+    }
+    return res.send({
+      status: "success",
+      book,
+    });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send({
+      status: "error",
+      message: "Server error",
+    });
+  }
+};
 exports.addBook = async (req, res) => {
   const { title, author, pages, published } = req.body;
   const book = new Book({
@@ -52,19 +75,25 @@ exports.updateBook = async (req, res) => {
     });
   }
 };
-
 exports.deleteBook = async (req, res) => {
   const { id } = req.params;
   try {
-    const record = await Book.findByIdAndDelete(id);
-    return res.send({
-      status: "Deleted",
-      data: record,
+    const deletedBook = await Book.findByIdAndDelete(id);
+    if (!deletedBook) {
+      return res.status(404).send({
+        status: "Failed",
+        message: "Record not found",
+      });
+    }
+    return res.status(200).send({
+      status: "Success",
+      data: deletedBook,
     });
   } catch (err) {
+    console.error(err);
     return res.status(500).send({
-      status: "Failed",
-      message: "Unable to Delete records",
+      status: "Error",
+      message: "Unable to delete record",
     });
   }
 };

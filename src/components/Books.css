@@ -4,7 +4,7 @@
   align-items: center;
 }
 .HoverRow {
-  width: 17rem;
+  width: 18rem;
   height: 20rem;
   margin: 0 !important;
   padding: 0 !important;
@@ -12,9 +12,12 @@
 }
 .HoverRow:hover {
   color: white;
-  transition: 1s;
+  transition: 0.5s;
+  border: 2px solid white;
 }
-
+h1{
+  font-size: 500%;
+}
 h4 {
   color: white;
   text-transform: uppercase;
